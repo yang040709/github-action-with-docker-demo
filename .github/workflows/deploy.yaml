@@ -30,4 +30,4 @@ jobs:
           port: ${{ secrets.SERVER_PORT }} # SSH 端口，通常是 22
           script: |
             sudo docker --version
-            sudo docker run -d -p 80:80 --name 'yang-docker-app' yang0709/yang-docker-demo:latest
+            sudo docker run -d -p 90:80 --name 'yang-docker-app' yang0709/yang-docker-demo:latest
