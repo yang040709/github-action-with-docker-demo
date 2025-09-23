@@ -21,3 +21,14 @@ jobs:
         with:
           push: true
           tags: yang0709/yang-docker-demo:latest
+      - name: Deploy to Remote Server
+        uses: appleboy/ssh-action@v1.0.2
+        with:
+          host: ${{ secrets.SERVER_HOST }} # 服务器 IP 或域名
+          username: ${{ secrets.SERVER_USER }} # 服务器用户名（如 ubuntu, root）
+          key: ${{ secrets.SERVER_SSH_KEY }} # SSH 私钥（PKCS#8 格式）
+          port: ${{ secrets.SERVER_PORT }} # SSH 端口，通常是 22
+          script: |
+            cd /opt/yang-docker-demo
+            docker-compose pull
+            docker-compose up -d

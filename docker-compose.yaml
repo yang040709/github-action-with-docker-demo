@@ -1,0 +1,7 @@
+version: '3'
+services:
+  web:
+    image: yang0709/yang-docker-demo:latest
+    ports:
+      - 80:80
+    restart: unless-stopped
