@@ -20,7 +20,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: yang0709/yang-docker-demo
+          tags: yang0709/yang-docker-demo:latest
       - name: Deploy to Remote Server
         uses: appleboy/ssh-action@v1.0.2
         with:
@@ -33,4 +33,5 @@ jobs:
             if [ "$(sudo docker ps -a | grep yang-docker-app)" ]; then
               sudo docker rm -f yang-docker-app
             fi
-            sudo docker run -d -p 90:80 --name 'yang-docker-app' yang0709/yang-docker-demo
+            sudo docker pull yang0709/yang-docker-demo:latest
+            sudo docker run -d -p 90:80 --name 'yang-docker-app' yang0709/yang-docker-demo:latest
