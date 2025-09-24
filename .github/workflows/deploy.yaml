@@ -20,7 +20,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: yang0709/yang-docker-demo:latest
+          tags: yang0709/yang-docker-demo
       - name: Deploy to Remote Server
         uses: appleboy/ssh-action@v1.0.2
         with:
